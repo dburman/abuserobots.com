@@ -1,97 +1,681 @@
-<html><head>
-<meta name="robots" content="noindex" />
-<meta name="robots" content="nofollow" />
+<!DOCTYPE HTML>
 
-<SCRIPT LANGUAGE="JavaScript1.2">
-var ver  = navigator.appVersion;
-var dom  = document.getElementById ? 1 : 0;
-var ie5  = (ver.indexOf("MSIE 5") > -1 && dom) ? 1 : 0;
-var n  = (document.layers);
-var ie = (document.all);
+<html>
+    <head>
+        
+            
+                <title>Abuse Robots</title>
+            
+        
 
-var sparksAflyin = 0;
-var totalSparks = 0;
-var sparksOn = 1;
-function initMouseEvents() {
-document.onmousedown = mouseDown;
-if (n) document.captureEvents(Event.MOUSEDOWN | Event.MOUSEMOVE);
-}
-function mouseDown(e) {
-if (sparksOn) {
-var mousex = (n) ? e.pageX : event.x+document.body.scrollLeft;
-var mousey = (n) ? e.pageY : event.y+document.body.scrollTop;
-if (!sparksAflyin) {
-for (var k = 0; k <= 9; k++)
-   eval('SHOW("sDiv'+k+'")');
-sparksAflyin = 1;
-totalSparks = 0;
-for(i = 0;i <= 9; i++)
-eval('moveTo('+i+',0,'+mousex+','+mousey+')');
-      }
-   }
-}
-function moveTo(i,j, mousex, mousey){
-if (j < eval('anim_'+i+'_x.length') ){
-var tempx = eval('anim_'+i+'_x[j]+mousex');
-var tempy = eval('anim_'+i+'_y[j]+mousey');
-if (ie) {
-if(tempy+30 > (document.body.offsetHeight+document.body.scrollTop))
-tempy = document.body.offsetHeight+document.body.scrollTop-30;
-if(tempx+30 > (document.body.offsetWidth+document.body.scrollLeft))
-tempx = document.body.offsetWidth+document.body.scrollLeft-30;
-eval('document.all.sDiv'+i+'.style.left = tempx;');
-eval('document.all.sDiv'+i+'.style.top  = tempy;');
-}
-if (n) {
-eval('document.layers.sDiv'+i+'.left = tempx;');
-eval('document.layers.sDiv'+i+'.top  = tempy;');
-}
-j++;
-//  timeout: 50 = fireworks speed, larger number = slower speed
-    setTimeout("moveTo("+i+","+j+","+mousex+","+mousey+")",50)
-}
-else {
-eval('HIDE("sDiv'+i+'")');
-totalSparks++;
-}
-if (totalSparks == 10) {
-sparksAflyin = 0;
-totalSparks  = 0;
-   }
-}
-function SHOW(divName){
-if (document.all)
-eval('document.all.'+divName+'.style.visibility = "visible";');
-else if (document.layers)
-eval('document.layers["'+divName+'"].visibility = "visible";');
-}
-function HIDE(divName){
-if (document.all)
-eval('document.all.'+divName+'.style.visibility = "hidden";');
-else if (document.layers)
-eval('document.layers["'+divName+'"].visibility = "hide";');
-}
-anim_0_x=new Array(20,20,10,0,0,0,0,0,0,0,0,0);
-anim_0_y=new Array(-20,-40,-60,-80,-60,-40,-20,0,20,40,60,80);
-anim_1_x=new Array(20,20,17,36,60,78,90,92,93,98,108,120,133,152,181);
-anim_1_y=new Array(-20,-20,-33,-38,-38,-27,-2,25,51,84,113,141,162,212,253);
-anim_2_x=new Array(20,20,2,3,4,5,6,7,8,9,10,12,13,15,18);
-anim_2_y=new Array(-20,-20,-33,-38,-38,-27,-2,25,51,84,113,141,162,212,253);
-anim_3_x=new Array(-20,-20,-2,-1,7,10,18,35,60,102,94,94,93,97,108,111,117,127);
-anim_3_y=new Array(-20,-25,-64,-89,-104,-150,-173,-197,-213,-199,-151,-101,-66,-17,27,87,140,189);
-anim_4_x=new Array(-20,-20,-10,-39,-30,-69,-64,-138,-154,-200,-181,-209,-191,-207,-203,-213,-202,-221,-211);
-anim_4_y=new Array(-20,-20,-28,-51,-79,-100,-135,-154,-193,-183,-149,-134,-89,-60,8,51,107,157,201);
-anim_5_x=new Array(-20,-29,-51,-72,-105,-133,-164,-189,-209,-229,-247,-270,-279,-282,-283,-283,-285,-286,-288);
-anim_5_y=new Array(-20,-55,-86,-116,-154,-183,-205,-217,-217,-198,-169,-120,-44,-8,40,87,144,190,248);
-anim_6_x=new Array(-20,-20,-7,14,44,79,143,186,217,226,234,244,250,259,265,274);
-anim_6_y=new Array(-20,-21,-72,-113,-139,-166,-188,-181,-126,-68,-3,54,134,187,215,257);
-anim_7_x=new Array(20,20,-3,-9,-13,-27,-33,-44,-54,-66,-77,-95,-107,-136,-150,-160,-164,-168,-171,-172,-172,-176,-175);
-anim_7_y=new Array(-20,-26,-43,-63,-89,-116,-145,-169,-201,-222,-240,-253,-254,-245,-220,-195,-160,-124,-81,-53,-26,19,68);
-anim_8_x=new Array(-20,20,-35,39,0,45,-1,24,-15,14,-20,35,-18,38,-11,16,49,64,81,93,100,103,109);
-anim_8_y=new Array(-20,-20,-32,-42,-62,-76,-89,-107,-132,-147,-173,-180,-192,-209,-236,-193,-119,-73,-24,51,95,130,188);
-anim_9_x=new Array(-20,-51,-89,-110,-165,-191,-228,-240,-259,-271,-277,-281,-287);
-anim_9_y=new Array(-20,-20,-35,-37,-34,-16,10,47,105,150,189,227,273);
-//  End -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.18.1" />
+        
+
+
+        
+        
+            
+                <meta name="description" content="Abuse Robots">
+            
+        
+
+        
+        <meta property="og:title" content="Abuse Robots" />
+<meta property="og:description" content="Abuse Robots" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://hugo.spf13.com/" />
+
+
+<meta property="og:updated_time" content="2017-02-08T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Abuse Robots">
+<meta itemprop="description" content="Abuse Robots">
+
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="/css/google-font.css" />
+            <link rel="stylesheet" href="/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/add-on.css" />
+            <link rel="stylesheet" href="/css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+        <h1><a href="/">!robots</i></a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/blog">
+                        
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories">
+                        Categories
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about">
+                        About
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:http://hugo.spf13.com/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:http://hugo.spf13.com/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/blog">
+                            <h3>
+                                
+                                    <i class="fa fa-newspaper-o">&nbsp;</i>
+                                
+                                Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            <h3>
+                                
+                                Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            <h3>
+                                
+                                About
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="http://hugo.spf13.com/blog/mountains/"><p>Mountains</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    
+    <div id="main">
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://hugo.spf13.com/blog/mountains/">Mountains</a></h2>
+        
+        
+            <p>Falls Cars</p>
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2017-02-08'>
+            February 8, 2017</time>
+        <span class="author">ar admin</span>
+        
+            <p>1 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+    <section id="social-share">
+        <ul class="icons">
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f&text=Mountains&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f&title=Mountains" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f&title=Mountains" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f&title=Mountains" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by ar%20admin&body=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+    
+    
+
+    
+        
+        
+
+
+
+
+    
+    
+        
+    
+
+
+        
+
+        <a href="http://hugo.spf13.com/blog/mountains/" class="image featured">
+            <img src="/img/2017/02/mtns.jpg" alt="frd" />
+        </a>
+    
+
+
+    <div id="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    </div>
+
+    <footer>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+
+                    
+                        Categories
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='/categoriesautumn'>Autumn</a></li>
+    
+        <li><a href='/categoriescars'>Cars</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+<ul class="actions pagination">
+    
+
+    
+</ul>
+
+
+
+    
+        <article class="post">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'shortname';
+    var disqus_identifier = 'http:\/\/hugo.spf13.com\/blog\/mountains\/';
+    var disqus_title = 'Mountains';
+    var disqus_url = 'http:\/\/hugo.spf13.com\/blog\/mountains\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
 </script>
-<title>Abuse Robots</title><style> #container { width: 1000px; margin: 0 auto;}</style></head><body bgcolor='#D7DEDC' OnLoad="initMouseEvents()"><div id="container"><img alt="geeeYA" src="pics/abuse-robots.png"></div></body></html>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </article>
+    
+
+
+
+            <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f&text=Mountains&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f&title=Mountains" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f&title=Mountains" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f&title=Mountains" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by ar%20admin&body=http%3a%2f%2fhugo.spf13.com%2fblog%2fmountains%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+</section>
+
+        
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+                
+                    <a href="/" class="logo"><img src="abuse-robots.png" alt="!robots" /></a>
+                
+            
+            
+                <header>
+                    <h2>Abuse Robots</h2>
+                    <p>A technology site for humans <i class='fa fa-hand-peace-o'></i></p>
+                </header>
+            
+            <ul class="icons">
+                
+                    <li><a href="http://hugo.spf13.com/index.xml" type="application/rss+xml"
+                        target="_blank" title="RSS" class="fa fa-rss"></a></li>
+                
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="http://hugo.spf13.com/blog/mountains/">Mountains</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2017-02-08'>
+                                    February 8, 2017</time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/autumn/">Autumn</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/cars/">Cars</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+    
+        
+        <section class="blurb">
+            <h2>About</h2>
+            <p>be honest. everyone hates robots.</p>
+
+            <ul class="actions">
+                <li><a href="/about/" class="button">Learn More</a></li>
+            </ul>
+        </section>
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                    <li><a href="http://hugo.spf13.com/index.xml" type="application/rss+xml"
+                        target="_blank" title="RSS" class="fa fa-rss"></a></li>
+                
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            </ul>
+
+            <p class="copyright">&copy; Abuse Robots. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <script src="/js/main.js"></script>
+            <script src="/js/backToTop.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+        
+
+        
+
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
 
